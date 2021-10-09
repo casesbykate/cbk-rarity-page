@@ -1,0 +1,57 @@
+.layout {
+    margin  : auto;
+    width   : 1024px;
+    position: relative;
+
+    >header {
+        font-family: handwrited;
+
+        >h1 {
+            position : absolute;
+            top      : 72px;
+            left     : 80px;
+            font-size: 32px;
+        }
+
+        >h2 {
+            position : absolute;
+            top      : 72px;
+            right    : 80px;
+            font-size: 32px;
+        }
+
+        >.menu {
+            position : absolute;
+            top      : 161.6px;
+            left     : 80px;
+            font-size: 28px;
+
+            >a {
+                display      : block;
+                margin-bottom: 46.4px;
+            }
+        }
+    }
+
+    >main {
+        width           : 1024px;
+        height          : 1290.5px;
+        background-image: url(../images/background.jpg);
+        background-size : contain;
+    }
+
+    >footer {
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        padding-bottom : 64px;
+
+        >a {
+            margin-right: 32px;
+        }
+
+        >a:last-of-type {
+            margin-right: 0;
+        }
+    }
+}

@@ -1,30 +1,290 @@
-/*@import "base.less";
-
-@font-face {
-    font-family: "Downcome";
-    src        : url("../fonts/Downcome.woff") format("woff"),
-        url("../fonts/Downcome.svg#Downcome") format("svg"),
-        url("../fonts/Downcome.eot"),
-        url("../fonts/Downcome.eot?#iefix") format("embedded-opentype");
-    font-weight: normal;
-    font-style : normal;
+/*
+https://github.com/Hanul/sky-css-base
+v0.0.1 | 20210109
+Author: Sim Young Jae
+License: MIT
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
 body {
-    font-family     : Downcome;
-    background-color: #000;
-    color           : #fff;
-    font-size       : 20px;
-    padding-bottom  : 100px;
-}*/
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
 table {
   border-collapse: collapse;
+  border-spacing: 0;
 }
-table th,
-table td {
-  border: 1px solid #000000;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-main {
+*,
+*:focus {
+  outline: 0;
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+a,
+button,
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  cursor: pointer;
+}
+button,
+input {
+  border: none;
+}
+[hidden] {
+  display: none !important;
+}
+[contenteditable] {
+  -webkit-tap-highlight-color: transparent;
+}
+.float-wrapper:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+body {
+  background-color: #000000;
+  font-family: "1942report";
+}
+.section-title {
+  background-color: rgba(227, 218, 0, 0.58);
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  font-size: 28px;
+  text-align: center;
+}
+.layout {
+  margin: auto;
+  width: 1024px;
+  position: relative;
+}
+.layout > header {
+  font-family: handwrited;
+}
+.layout > header > h1 {
+  position: absolute;
+  top: 72px;
+  left: 80px;
+  font-size: 32px;
+}
+.layout > header > h2 {
+  position: absolute;
+  top: 72px;
+  right: 80px;
+  font-size: 32px;
+}
+.layout > header > .menu {
+  position: absolute;
+  top: 161.6px;
+  left: 80px;
+  font-size: 28px;
+}
+.layout > header > .menu > a {
+  display: block;
+  margin-bottom: 46.4px;
+}
+.layout > main {
+  width: 1024px;
+  height: 1290.5px;
+  background-image: url(./images/background.jpg);
+  background-size: contain;
+}
+.layout > footer {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 64px;
+}
+.layout > footer > a {
+  margin-right: 32px;
+}
+.layout > footer > a:last-of-type {
+  margin-right: 0;
+}
+.all-cases-view {
+  position: relative;
+}
+.all-cases-view > header {
+  position: absolute;
+  left: 320px;
+  top: 160px;
+  display: flex;
+  width: 600px;
+}
+.all-cases-view > header > section {
+  width: 33.33%;
+}
+.all-cases-view > header > section > h4 {
+  width: 160px;
+}
+.all-cases-view > header > section > input,
+.all-cases-view > header > section > select,
+.all-cases-view > header > section > .page {
+  margin-top: 16px;
+  background-color: rgba(252, 252, 252, 0.7);
+  border: none;
+  width: 160px;
+  font-size: 16px;
+  padding: 8px;
+  font-family: "1942report";
+  text-transform: uppercase;
+}
+.all-cases-view > header > section > .page {
+  text-transform: none;
+  text-align: center;
+}
+.all-cases-view > header > section > .page:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.all-cases-view > header > section > .page > .button-container {
+  margin-top: 8px;
+}
+.all-cases-view > header > section > .page > .button-container:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.all-cases-view > header > section > .page > .button-container > .prev-button {
+  float: left;
+}
+.all-cases-view > header > section > .page > .button-container > .next-button {
+  float: right;
+}
+.all-cases-view > header > section > .page > .button-container > .prev-button,
+.all-cases-view > header > section > .page > .button-container > .next-button {
+  background-color: rgba(142, 142, 142, 0.7);
+  padding: 2px 8px;
+  text-transform: uppercase;
 }
 

@@ -1,0 +1,58 @@
+.all-cases-view {
+    position: relative;
+
+    >header {
+        position: absolute;
+        left    : 320px;
+        top     : 160px;
+        display : flex;
+        width   : 600px;
+
+        >section {
+            width: 33.33%;
+
+            >h4 {
+                width: 160px;
+            }
+
+            >input,
+            >select,
+            >.page {
+                margin-top      : 16px;
+                background-color: rgba(252, 252, 252, 0.7);
+                border          : none;
+                width           : 160px;
+                font-size       : 16px;
+                padding         : 8px;
+                font-family     : "1942report";
+                text-transform  : uppercase;
+            }
+
+            >.page {
+                .float-wrapper();
+                text-transform: none;
+                text-align    : center;
+
+                >.button-container {
+                    margin-top: 8px;
+                    .float-wrapper();
+
+                    >.prev-button {
+                        float: left;
+                    }
+
+                    >.next-button {
+                        float: right;
+                    }
+
+                    >.prev-button,
+                    >.next-button {
+                        background-color: rgba(142, 142, 142, 0.7);
+                        padding         : 2px 8px;
+                        text-transform  : uppercase;
+                    }
+                }
+            }
+        }
+    }
+}

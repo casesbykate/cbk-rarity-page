@@ -1,32 +1,18 @@
-/*@import "base.less";
-
-@font-face {
-    font-family: "Downcome";
-    src        : url("../fonts/Downcome.woff") format("woff"),
-        url("../fonts/Downcome.svg#Downcome") format("svg"),
-        url("../fonts/Downcome.eot"),
-        url("../fonts/Downcome.eot?#iefix") format("embedded-opentype");
-    font-weight: normal;
-    font-style : normal;
-}
+@import "base.less";
 
 body {
-    font-family     : Downcome;
-    background-color: #000;
-    color           : #fff;
-    font-size       : 20px;
-    padding-bottom  : 100px;
-}*/
-
-table {
-    border-collapse: collapse;
-
-    th,
-    td {
-        border: 1px solid #000000;
-    }
+    background-color: #000000;
+    font-family     : "1942report";
 }
 
-main {
-    display: flex;
+.section-title {
+    background-color: rgba(227, 218, 0, 0.58);
+    text-transform  : uppercase;
+    transform       : rotate(-4deg);
+    font-size       : 28px;
+    text-align      : center;
 }
+
+@import "view/layout.less";
+@import "view/all-cases.less";
+@import "view/my-cases.less";
