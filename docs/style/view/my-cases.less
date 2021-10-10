@@ -22,4 +22,130 @@
             }
         }
     }
+
+    >.case-container {
+        position: absolute;
+        left    : 90px;
+        top     : 320px;
+        width   : 210px;
+
+        >h4 {
+            font-family   : MomsTypewriter;
+            font-size     : 20px;
+            text-transform: uppercase;
+            margin-bottom : 10px;
+        }
+
+        >.case-list {
+            background-color: rgba(255, 255, 255, 0.37);
+            height          : 820px;
+            padding         : 5px 0;
+            overflow-y      : auto;
+
+            >.case {
+                display       : block;
+                padding       : 5px 10px;
+                font-size     : 20px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    >main {
+        position: absolute;
+        left    : 320px;
+        top     : 300px;
+        width   : 620px;
+        height  : 870px;
+        display : flex;
+
+        >.case-container {
+            width: 300px;
+            .float-wrapper();
+
+            >.case {
+                position        : relative;
+                width           : 300px;
+                height          : 300px;
+                background-image: url("/images/case.png");
+                background-size : contain;
+                font-family     : NanumMiRaeNaMu;
+                font-size       : 19.5px;
+                line-height     : 1.2em;
+
+                >h5 {
+                    position      : absolute;
+                    left          : 0;
+                    top           : 27px;
+                    width         : 100%;
+                    font-size     : 21px;
+                    font-family   : "1942report";
+                    text-transform: uppercase;
+                    transform     : rotate(15deg);
+                    text-align    : center;
+                    word-break    : keep-all;
+                    overflow-x    : hidden;
+                }
+
+                >p {
+                    position: absolute;
+                    left    : 15px;
+                    top     : 36px;
+                    width   : 270px;
+                    height  : 264px;
+                    padding : 3px 7.5px;
+                    overflow: auto;
+                }
+            }
+
+            >.score {
+                display       : flex;
+                text-transform: uppercase;
+                width         : 270px;
+                margin        : auto;
+                margin-top    : 15px;
+                font-family   : MomsTypewriter;
+
+                >h5 {
+                    background-color: rgba(158, 162, 178, 0.49);
+                    font-size       : 16px;
+                    padding         : 5px;
+                }
+
+                >span {
+                    margin-left     : 10px;
+                    background-color: rgba(255, 255, 255, 0.7);
+                    flex-grow       : 1;
+                    text-align      : center;
+                    font-size       : 16px;
+                    padding         : 5px;
+                }
+            }
+
+            >.opensea-button {
+                float           : left;
+                margin-left     : 15px;
+                margin-top      : 15px;
+                background-color: rgba(158, 162, 178, 0.49);
+                color           : #000000;
+                text-decoration : none;
+                text-transform  : uppercase;
+                font-size       : 16px;
+                padding         : 5px;
+                font-family     : MomsTypewriter;
+            }
+        }
+
+        >.properties {
+            flex-grow   : 1;
+            font-family : MomsTypewriter;
+            padding-left: 10px;
+            padding-top : 36px;
+
+            >.property {
+                line-height  : 1.4em;
+                margin-bottom: 10px;
+            }
+        }
+    }
 }

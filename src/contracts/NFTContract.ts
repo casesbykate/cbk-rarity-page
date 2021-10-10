@@ -10,6 +10,10 @@ class NFTContract extends Contract {
     public async balanceOf(owner: string): Promise<BigNumber> {
         return BigNumber.from(await this.runMethod("balanceOf", owner));
     }
+
+    public async tokenOfOwnerByIndex(owner: string, index: number): Promise<BigNumber> {
+        return BigNumber.from(await this.runMethod("tokenOfOwnerByIndex", owner, index));
+    }
 }
 
 export default new NFTContract();
