@@ -55,4 +55,71 @@
             }
         }
     }
+
+    >.properties {
+        position: absolute;
+        left    : 90px;
+        top     : 300px;
+        width   : 210px;
+
+        >h4 {
+            margin-bottom: 15px;
+        }
+
+        >select {
+            font-family: MomsTypewriter;
+            background : none;
+            border     : none;
+            width      : 100%;
+            padding    : 10px;
+        }
+    }
+
+    >.case-list {
+        position  : absolute;
+        left      : 320px;
+        top       : 300px;
+        width     : 620px;
+        height    : 870px;
+        overflow-y: scroll;
+        .float-wrapper();
+
+        >.case {
+            position        : relative;
+            margin-bottom   : 10px;
+            float           : left;
+            width           : 200px;
+            height          : 200px;
+            background-image: url("/images/case.png");
+            background-size : contain;
+            font-family     : NanumMiRaeNaMu;
+            font-size       : 13px;
+            line-height     : 1.2em;
+            padding         : 0 15px 0 15px;
+
+            >h5 {
+                position      : absolute;
+                left          : 0;
+                top           : 18px;
+                width         : 100%;
+                font-size     : 14px;
+                font-family   : "1942report";
+                text-transform: uppercase;
+                transform     : rotate(15deg);
+                text-align    : center;
+                word-break    : keep-all;
+                overflow-x    : hidden;
+            }
+
+            >p {
+                position: absolute;
+                left    : 10px;
+                top     : 24px;
+                width   : 180px;
+                height  : 176px;
+                padding : 3px 5px;
+                overflow: auto;
+            }
+        }
+    }
 }

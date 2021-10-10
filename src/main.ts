@@ -1,5 +1,4 @@
 import { SkyRouter } from "skyrouter";
-import Wallet from "./klaytn/Wallet";
 import AllCases from "./view/AllCases";
 import Layout from "./view/Layout";
 import MyCases from "./view/MyCases";
@@ -8,7 +7,7 @@ import MyCases from "./view/MyCases";
 
     SkyRouter.route("**", Layout);
     SkyRouter.route("", AllCases);
-    SkyRouter.route("mates", MyCases);
+    SkyRouter.route("my-cases", MyCases);
 
     if (sessionStorage.__spa_path) {
         SkyRouter.go(sessionStorage.__spa_path);

@@ -287,4 +287,91 @@ body {
   padding: 2px 8px;
   text-transform: uppercase;
 }
+.all-cases-view > .properties {
+  position: absolute;
+  left: 90px;
+  top: 300px;
+  width: 210px;
+}
+.all-cases-view > .properties > h4 {
+  margin-bottom: 15px;
+}
+.all-cases-view > .properties > select {
+  font-family: MomsTypewriter;
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 10px;
+}
+.all-cases-view > .case-list {
+  position: absolute;
+  left: 320px;
+  top: 300px;
+  width: 620px;
+  height: 870px;
+  overflow-y: scroll;
+}
+.all-cases-view > .case-list:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.all-cases-view > .case-list > .case {
+  position: relative;
+  margin-bottom: 10px;
+  float: left;
+  width: 200px;
+  height: 200px;
+  background-image: url("/images/case.png");
+  background-size: contain;
+  font-family: NanumMiRaeNaMu;
+  font-size: 13px;
+  line-height: 1.2em;
+  padding: 0 15px 0 15px;
+}
+.all-cases-view > .case-list > .case > h5 {
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 100%;
+  font-size: 14px;
+  font-family: "1942report";
+  text-transform: uppercase;
+  transform: rotate(15deg);
+  text-align: center;
+  word-break: keep-all;
+  overflow-x: hidden;
+}
+.all-cases-view > .case-list > .case > p {
+  position: absolute;
+  left: 10px;
+  top: 24px;
+  width: 180px;
+  height: 176px;
+  padding: 3px 5px;
+  overflow: auto;
+}
+.my-cases-view {
+  position: relative;
+}
+.my-cases-view > header {
+  position: absolute;
+  left: 320px;
+  top: 160px;
+}
+.my-cases-view > header > section > h4 {
+  width: 280px;
+}
+.my-cases-view > header > section > .wallet-address {
+  margin-top: 16px;
+  background-color: rgba(252, 252, 252, 0.7);
+  border: none;
+  font-size: 16px;
+  padding: 8px;
+  font-family: "1942report";
+  text-transform: uppercase;
+}
 
