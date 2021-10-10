@@ -9,6 +9,7 @@ export default class AllCases implements View {
     private container: DomNode;
     private pageDisplay: DomNode;
     private caseList: DomNode;
+    private selects: DomNode<HTMLSelectElement>[] = [];
 
     private byId: undefined | number;
     private filter: { [key: string]: string } = {};
@@ -73,22 +74,46 @@ export default class AllCases implements View {
             ),
             el(".properties",
                 el("h4.section-title", "Properties"),
-                ...Object.entries(rarity.traits).map(([key, values]) => el("select",
-                    {
-                        placeholder: key,
-                        change: (event, select) => {
-                            const value = (select.domElement as HTMLSelectElement).value;
-                            Object.assign(this.filter, { [key]: value });
-                            if (value === "") {
-                                delete this.filter[key];
-                            }
-                            this.page = 1;
-                            this.loadCases();
+                ...Object.entries(rarity.traits).map(([key, values]) => {
+                    const select = el("select",
+                        {
+                            placeholder: key,
+                            change: (event, select) => {
+                                const value = (select.domElement as HTMLSelectElement).value;
+                                Object.assign(this.filter, { [key]: value });
+                                if (value === "") {
+                                    delete this.filter[key];
+                                    select.style({
+                                        "background-color": undefined,
+                                    });
+                                } else {
+                                    select.style({
+                                        "background-color": "rgba(255, 255, 255, 0.37)",
+                                    });
+                                }
+                                this.page = 1;
+                                this.loadCases();
+                            },
                         },
+                        el("option", key, { value: "" }),
+                        ...Object.keys(values).filter((value) => value !== "").map((value) => el("option", `${value} (${(rarity.traits as any)[key][value].count})`, { value })),
+                    );
+                    this.selects.push(select as DomNode<HTMLSelectElement>);
+                    return select;
+                }),
+                el("a.reset-button", "Reset", {
+                    click: () => {
+                        this.filter = {};
+                        for (const select of this.selects) {
+                            select.domElement.value = "";
+                            select.style({
+                                "background-color": undefined,
+                            });
+                        }
+                        this.page = 1;
+                        this.loadCases();
                     },
-                    el("option", key, { value: "" }),
-                    ...Object.keys(values).filter((value) => value !== "").map((value) => el("option", value, { value })),
-                )),
+                }),
             ),
             this.caseList = el(".case-list"),
         ));

@@ -3,6 +3,7 @@ export default class AllCases implements View {
     private container;
     private pageDisplay;
     private caseList;
+    private selects;
     private byId;
     private filter;
     private sortBy;

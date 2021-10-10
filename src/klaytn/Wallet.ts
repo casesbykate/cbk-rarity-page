@@ -28,7 +28,7 @@ class Wallet extends EventContainer {
         if (ExtWallet.installed === true) {
             return await ExtWallet.connect();
         } else {
-            alert("민팅에는 카이카스가 필요합니다. 카이카스를 설치해주시기 바랍니다.");
+            alert("카이카스가 필요합니다. 카이카스를 설치해주시기 바랍니다.");
         }
     }
 }

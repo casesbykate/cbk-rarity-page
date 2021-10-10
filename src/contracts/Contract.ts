@@ -43,7 +43,7 @@ export default abstract class Contract extends EventContainer {
             const contract = await this.loadExtWalletContract();
             await contract?.methods[methodName](...params).send({ from, gas: 1500000 });
         } else {
-            alert("민팅에는 카이카스가 필요합니다. 카이카스를 설치해주시기 바랍니다.");
+            alert("카이카스가 필요합니다. 카이카스를 설치해주시기 바랍니다.");
             return new Promise(() => { });
         }
     }
@@ -54,7 +54,7 @@ export default abstract class Contract extends EventContainer {
             const contract = await this.loadExtWalletContract();
             await contract?.methods[methodName](...params).send({ from, gas: 1500000, value });
         } else {
-            alert("민팅에는 카이카스가 필요합니다. 카이카스를 설치해주시기 바랍니다.");
+            alert("카이카스가 필요합니다. 카이카스를 설치해주시기 바랍니다.");
             return new Promise(() => { });
         }
     }

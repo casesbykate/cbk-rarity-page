@@ -303,6 +303,15 @@ body {
   width: 100%;
   padding: 10px;
 }
+.all-cases-view > .properties > .reset-button {
+  margin-top: 15px;
+  display: block;
+  background-color: rgba(142, 142, 142, 0.7);
+  padding: 5px 0;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+}
 .all-cases-view > .case-list {
   position: absolute;
   left: 320px;
