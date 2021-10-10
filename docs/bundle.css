@@ -362,6 +362,24 @@ body {
   padding: 2px 5px;
   overflow: auto;
 }
+.all-cases-view > .case-list > .case > .rarity {
+  display: none;
+}
+.all-cases-view > .case-list > .case:hover > .rarity {
+  position: absolute;
+  left: 10px;
+  top: 24px;
+  width: 180px;
+  height: 176px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-family: MomsTypewriter;
+  text-transform: uppercase;
+  backdrop-filter: blur(2px);
+}
 .my-cases-view {
   position: relative;
 }
@@ -393,6 +411,16 @@ body {
   font-size: 20px;
   text-transform: uppercase;
   margin-bottom: 10px;
+}
+.my-cases-view > .case-container > select {
+  margin-bottom: 10px;
+  background-color: rgba(252, 252, 252, 0.7);
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  padding: 8px;
+  font-family: "1942report";
+  text-transform: uppercase;
 }
 .my-cases-view > .case-container > .case-list {
   background-color: rgba(255, 255, 255, 0.37);

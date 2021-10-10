@@ -14,6 +14,8 @@ export default class MyCases implements View {
     private caseList: DomNode;
     private detail: DomNode;
 
+    private sortBy = "id-low";
+
     constructor() {
         Layout.current.content.append(this.container = el(".my-cases-view",
             el("header",
@@ -24,6 +26,19 @@ export default class MyCases implements View {
             ),
             el(".case-container",
                 el("h4", "My Cases"),
+                el("select",
+                    el("option", "Sort By", { value: "id-low" }),
+                    el("option", "Id - Low", { value: "id-low" }),
+                    el("option", "Id - High", { value: "id-high" }),
+                    el("option", "Rarity - High", { value: "rarity-high" }),
+                    el("option", "Rarity - Low", { value: "rarity-low" }),
+                    {
+                        change: (event, input) => {
+                            this.sortBy = (input.domElement as HTMLSelectElement).value;
+                            this.load();
+                        },
+                    },
+                ),
                 this.caseList = el(".case-list"),
             ),
             this.detail = el("main"),
@@ -41,7 +56,7 @@ export default class MyCases implements View {
             this.walletAddressDisplay.empty().appendText(address);
 
             const balance = (await NFTContract.balanceOf(address)).toNumber();
-            const cases: number[] = [];
+            let cases: number[] = [];
 
             const promises: Promise<void>[] = [];
             for (let i = 0; i < balance; i += 1) {
@@ -52,7 +67,18 @@ export default class MyCases implements View {
                 promises.push(promise(i));
             }
             await Promise.all(promises);
-            cases.sort((a, b) => a - b);
+
+            if (this.sortBy === "id-high") {
+                cases = cases.reverse();
+            } else if (this.sortBy === "rarity-high") {
+                cases.sort((a, b) => {
+                    return (rarity.scores as any)[b] - (rarity.scores as any)[a];
+                });
+            } else if (this.sortBy === "rarity-low") {
+                cases.sort((a, b) => {
+                    return (rarity.scores as any)[a] - (rarity.scores as any)[b];
+                });
+            }
 
             this.caseList.empty();
             for (const caseId of cases) {

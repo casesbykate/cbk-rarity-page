@@ -129,6 +129,28 @@
                 padding : 2px 5px;
                 overflow: auto;
             }
+
+            >.rarity {
+                display: none;
+            }
+
+            &:hover {
+                >.rarity {
+                    position        : absolute;
+                    left            : 10px;
+                    top             : 24px;
+                    width           : 180px;
+                    height          : 176px;
+                    display         : flex;
+                    flex-direction  : column;
+                    justify-content : center;
+                    text-align      : center;
+                    background-color: rgba(0, 0, 0, 0.2);
+                    font-family     : MomsTypewriter;
+                    text-transform  : uppercase;
+                    backdrop-filter : blur(2px);
+                }
+            }
         }
     }
 }

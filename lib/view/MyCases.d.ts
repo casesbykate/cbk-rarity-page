@@ -4,6 +4,7 @@ export default class MyCases implements View {
     private walletAddressDisplay;
     private caseList;
     private detail;
+    private sortBy;
     constructor();
     private load;
     private showDetail;

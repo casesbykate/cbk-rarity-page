@@ -1,5 +1,6 @@
 import { DomNode, el } from "@hanul/skynode";
 import { View, ViewParams } from "skyrouter";
+import CommonUtil from "../CommonUtil";
 import database from "../database.json";
 import rarity from "../rarity.json";
 import Layout from "./Layout";
@@ -167,6 +168,10 @@ export default class AllCases implements View {
                 this.caseList.append(el(".case",
                     el("h5", `Case #${info.id}`),
                     el("p", info.token.text),
+                    el(".rarity",
+                        el("h6", "Rarity Score"),
+                        el("span", CommonUtil.numberWithCommas(String((rarity.scores as any)[info.id]))),
+                    ),
                 ));
             }
         }
