@@ -176,6 +176,54 @@ body {
   font-size: 28px;
   text-align: center;
 }
+.popup-background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding: 20px 0;
+}
+.postit-popup {
+  height: 100%;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Cafe24Oneprettynight';
+}
+.postit-popup > .content {
+  background-image: url("/images/popup.png");
+  background-repeat: no-repeat;
+  background-size: 491px 491px;
+  width: 491px;
+  height: 491px;
+  padding: 30px;
+  line-height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Cafe24Oneprettynight';
+}
+.postit-popup > .content > .button-container {
+  margin-top: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.postit-popup > .content > .button-container > a {
+  margin-top: 8px;
+}
 .layout {
   margin: auto;
   width: 1024px;

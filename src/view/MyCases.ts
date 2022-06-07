@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import database from "../database.json";
 import rarity from "../rarity.json";
 import CommonUtil from "../CommonUtil";
+import PostitPopup from "../component/postit-popup";
 
 export default class MyCases implements View {
 
@@ -18,6 +19,7 @@ export default class MyCases implements View {
 
     constructor() {
         Layout.current.content.append(this.container = el(".my-cases-view",
+            // new PostitPopup(),
             el("header",
                 el("section",
                     el("h4.section-title", "Wallet Connect"),
