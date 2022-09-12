@@ -1,12 +1,12 @@
 import { DomNode, el } from "@hanul/skynode";
 import { View, ViewParams } from "skyrouter";
-import NFTContract from "../contracts/NFTContract";
-import Wallet from "../klaytn/Wallet";
-import Layout from "./Layout";
-import database from "../database.json";
-import rarity from "../rarity.json";
 import CommonUtil from "../CommonUtil";
-import PostitPopup from "../component/postit-popup";
+import NFTContract from "../contracts/NFTContract";
+import database from "../database.json";
+import Wallet from "../klaytn/Wallet";
+import rarity from "../rarity.json";
+import Layout from "./Layout";
+import ViewUtil from "./ViewUtil";
 
 export default class MyCases implements View {
 
@@ -15,9 +15,10 @@ export default class MyCases implements View {
     private caseList: DomNode;
     private detail: DomNode;
 
+    private currentId: number | undefined;
     private sortBy = "id-low";
 
-    constructor() {
+    constructor(viewParams: ViewParams) {
         Layout.current.content.append(this.container = el(".my-cases-view",
             // new PostitPopup(),
             el("header",
@@ -45,6 +46,10 @@ export default class MyCases implements View {
             ),
             this.detail = el("main"),
         ));
+
+        if (viewParams.caseId !== undefined) {
+            this.currentId = parseInt(viewParams.caseId, 10);
+        }
 
         this.load();
     }
@@ -87,19 +92,25 @@ export default class MyCases implements View {
                 this.caseList.append(
                     el("a.case", `Case #${caseId}`, {
                         click: () => {
-                            this.showDetail(caseId);
+                            //this.showDetail(caseId);
+                            ViewUtil.go(`/my-cases/${caseId}`);
                         },
                     }),
                 );
             }
 
             if (cases.length > 0) {
-                this.showDetail(cases[0]);
+                if (this.currentId !== undefined) {
+                    this.showDetail(this.currentId);
+                } else {
+                    this.showDetail(cases[0]);
+                }
             }
         }
     }
 
     private showDetail(caseId: number) {
+        this.currentId = caseId;
         const token: any = (database as any)[caseId];
         this.detail.empty().append(
             el(".case-container",
@@ -122,10 +133,21 @@ export default class MyCases implements View {
                     el("span", token.attributes.find((a: any) => a.trait_type === key).value),
                 )),
             ),
+            el("a.lockable",
+                el("img", { src: "/images/lockable.png", width: "209px" }),
+                el("h4", "Lockable\nContents"),
+                {
+                    click: () => ViewUtil.go(`/my-cases/${caseId}/lockable`),
+                },
+            ),
         );
     }
 
-    public changeParams(params: ViewParams, uri: string): void { }
+    public changeParams(params: ViewParams, uri: string): void {
+        if (params.caseId !== undefined) {
+            this.showDetail(parseInt(params.caseId, 10));
+        }
+    }
 
     public close(): void {
         this.container.delete();
